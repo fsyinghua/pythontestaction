@@ -33,7 +33,7 @@ jobs:
       run: |
         # Prepare fresh token
         mkdir -p ~/.config/
-        echo "refresh_token: '${{ secret.ALIYUNPAN_SECRET }}'" > ~/.config/aliyunpan.yaml
+        echo "refresh_token: '${{ secrets.ALIYUNPAN_SECRET }}'" > ~/.config/aliyunpan.yaml
         # echo "refresh_token: 'xxxxx'"  >  ~/.config/aliyunpan.yaml
         aliyunpan
     - name: Aliyunpan test
