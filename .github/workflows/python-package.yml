@@ -10,13 +10,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  aliyunpan-test:
 
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7","3.8"]
+        python-version: ["3.8"]
 
     steps:
     - uses: actions/checkout@v3
@@ -33,9 +33,10 @@ jobs:
       run: |
         # Prepare fresh token
         mkdir -p ~/.config/
-        echo "refresh_token: '${{ secrets.ALIYUNPAN_SECRET }}'" > ~/.config/aliyunpan.yaml
+        echo "refresh_token: '${{ secrets.ALIYUNPAN_SECRET }}'"  >  ~/.config/aliyunpan.yaml
         # echo "refresh_token: 'xxxxx'"  >  ~/.config/aliyunpan.yaml
-        aliyunpan
+
     - name: Aliyunpan test
       run: |
         aliyunpan ls
+        echo "end"
