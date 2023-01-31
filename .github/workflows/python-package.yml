@@ -29,12 +29,11 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install aliyunpan
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with aliyunpan
+    - name: Line in aliyunpan
       run: |
         # Prepare fresh token
         mkdir -p ~/.config/
         echo "refresh_token: '${{ secrets.ALIYUNPAN_SECRET }}'"  >  ~/.config/aliyunpan.yaml
-        # echo "refresh_token: 'xxxxx'"  >  ~/.config/aliyunpan.yaml
 
     - name: Aliyunpan test
       run: |
