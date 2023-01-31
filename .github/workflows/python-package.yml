@@ -33,8 +33,12 @@ jobs:
       run: |
         mkdir -p ~/.config/
         echo "refresh_token: '${{ secrets.ALIYUNPAN_SECRET }}'"  >  ~/.config/aliyunpan.yaml
+        ls ~/.config/aliyunpan.yaml
+        pwd
 
     - name: Aliyunpan test
       run: |
+        pwd
+        ls ~/.config/aliyunpan.yaml
         aliyunpan ls
         echo "end"
