@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7"]
+        python-version: ["3.7","3.8"]
 
     steps:
     - uses: actions/checkout@v3
@@ -35,7 +35,7 @@ jobs:
         mkdir -p ~/.config/
         echo "refresh_token: '${{ secret.ALIYUNPAN_SECRET }}'" > ~/.config/aliyunpan.yaml
         # echo "refresh_token: 'xxxxx'"  >  ~/.config/aliyunpan.yaml
-        aliyunpan -h
+        aliyunpan
     - name: Aliyunpan test
       run: |
         aliyunpan ls
